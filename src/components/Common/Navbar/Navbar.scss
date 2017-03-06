@@ -1,0 +1,17 @@
+.navbar {
+  border-radius: 0 !important;
+  background-color: #2B95D6 !important;
+  font-weight: bold;
+  margin-bottom: 0 !important;
+
+  &__container {
+    border: none !important;
+  }
+
+  &__header {
+    font-size: 25px;
+    font-weight: bold;
+    align-self: center;
+    cursor: pointer;
+  }
+}

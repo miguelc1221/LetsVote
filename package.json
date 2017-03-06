@@ -1,0 +1,43 @@
+{
+  "name": "lets-vote",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": "7.7.1"
+  },
+  "proxy": "http://localhost:3001",
+  "dependencies": {
+    "bluebird": "^3.4.7",
+    "body-parser": "^1.17.0",
+    "compression": "^1.6.2",
+    "express": "^4.15.0",
+    "express-jwt": "^5.1.0",
+    "mongoose": "^4.8.5",
+    "mongoose-unique-validator": "^1.0.4",
+    "morgan": "^1.8.1",
+    "normalize.css": "^5.0.0",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "react-redux": "^5.0.3",
+    "react-router-dom": "next",
+    "redux": "^3.6.0",
+    "redux-saga": "^0.14.3",
+    "semantic-ui-css": "^2.2.9",
+    "semantic-ui-react": "^0.67.0"
+  },
+  "devDependencies": {
+    "node-sass": "^4.5.0",
+    "npm-run-all": "^4.0.2",
+    "react-scripts": "0.9.3"
+  },
+  "scripts": {
+    "build-css": "node-sass src/ -o src/",
+    "watch-css": "npm run build-css && node-sass src/ -o src/ --watch --recursive",
+    "start-js": "react-scripts start",
+    "start-dev": "npm-run-all -p watch-css start-js start",
+    "start": "node server/index.js",
+    "build": "npm run build-css && react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}

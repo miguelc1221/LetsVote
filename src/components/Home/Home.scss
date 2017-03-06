@@ -1,0 +1,40 @@
+.home {
+
+  &__jumbo {
+    text-align: center;
+    min-height: 450px;
+    background-image: url('../../../public/images/hands.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: bottom;
+  }
+
+  &__jumbo-header {
+    padding-top: 120px !important;
+    h1 {
+      font-size: 45px;
+    }
+    h2 {
+      font-size: 20px !important;
+    }
+  }
+
+  &__get-started {
+    background-color: #F5F8FA;
+    margin-top: -40px;
+    padding: 35px;
+  }
+
+  &__get-started-innerContainer {
+    width: 250px;
+    margin: 0 auto;
+
+    h1 {
+      text-align: center;
+    }
+
+    div ol {
+      line-height: 2;
+    }
+  }
+}
