@@ -1,4 +1,7 @@
 .home {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 
   &__jumbo {
     text-align: center;
@@ -23,6 +26,7 @@
     background-color: #F5F8FA;
     margin-top: -40px;
     padding: 35px;
+    flex: 1;
   }
 
   &__get-started-innerContainer {

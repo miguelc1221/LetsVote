@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const bcrypt = require('bcrypt-nodejs');
+const bcrypt = require('bcrypt');
 const validate = require('mongoose-validator');
 const uniqueValidator = require('mongoose-unique-validator');
 
@@ -27,12 +27,14 @@ const UserSchema = new Schema({
     required: true,
     trim: true
   },
-  polls: []
+  polls: [{ type: Schema.Types.ObjectId, ref: 'Poll' }]
 });
 
-UserSchema.methods.comparePassword = function(password) {
-  const user = this;
-  return bcrypt.compareSync(password, user.password);
+UserSchema.methods.comparePassword = function(candidatePassword, cb) {
+  bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
+    if (err) return cb(err);
+    cb(null, isMatch);
+  });
 }
 
 UserSchema.pre('save', function(next) {
@@ -43,7 +45,7 @@ UserSchema.pre('save', function(next) {
   bcrypt.genSalt(10, function(err, salt){
     if (err) return next(err)
 
-    bcrypt.hash(user.password, salt, null, function(err,hash){
+    bcrypt.hash(user.password, salt, function(err,hash){
       if (err) return next(err);
 
       user.password = hash;

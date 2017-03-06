@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Header, Button } from 'semantic-ui-react'
+import { Header } from 'semantic-ui-react'
+import Signup from '../Auth/Signup';
 
 import './Home.css';
 
@@ -16,7 +17,7 @@ class Home extends Component {
               Create Custom Polls And Share Them With Friends
             </Header.Subheader>
             <Header>
-              <Button color='olive'>Sign up</Button>
+              <Signup />
             </Header>
           </Header>
         </div>

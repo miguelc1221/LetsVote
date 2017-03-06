@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Menu, Segment, Container } from 'semantic-ui-react'
+import Login from '../../Auth/Login';
 import './Navbar.css';
 
 class Navbar extends Component {
@@ -10,11 +11,11 @@ class Navbar extends Component {
   render() {
     const { activeItem } = this.state
     return (
-      <Segment inverted className="navbar">
+      <Segment className="navbar">
         <Container>
-          <Menu inverted pointing secondary className="navbar__container">
+          <Menu inverted borderless className="navbar__container">
             <Menu.Header className="navbar__header">Let's Vote</Menu.Header>
-            <Menu.Item position='right' name='Login' active={activeItem === 'Login'} onClick={this.handleItemClick} />
+            <Login />
           </Menu>
         </Container>
       </Segment>

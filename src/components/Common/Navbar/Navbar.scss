@@ -5,7 +5,10 @@
   margin-bottom: 0 !important;
 
   &__container {
-    border: none !important;
+    background-color: transparent !important;
+    a {
+      color: white !important;
+    }
   }
 
   &__header {
@@ -13,5 +16,7 @@
     font-weight: bold;
     align-self: center;
     cursor: pointer;
+    color: white !important;
   }
+
 }

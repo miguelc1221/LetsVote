@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const login = require('./login');
-const signup = require('./singup');
+const signup = require('./signup');
 
 const router = Router();
 

@@ -24,8 +24,8 @@ app.disable('x-powered-by');
 
 app.use(express.static(path.join(__dirname, '../build')));
 
-// app.use('/api', expressJwt({ secret: config.secretKey })
-//   .unless({ path: ['/api/signin', '/api/signup'] }));
+app.use('/auth', expressJwt({ secret: config.secretKey })
+  .unless({ path: ['/auth/login', '/auth/signup'] }));
 
 app.use('/auth', auth);
 
@@ -36,5 +36,5 @@ app.get('*', (req, res) => {
 // Server Setup
 app.listen(config.port, (err) => {
   if (err) return console.log(err);
-  console.log('Listening at http://localhost:' + config.port);
+  console.log(`Listening at http://localhost:${  config.port}`);
 });
