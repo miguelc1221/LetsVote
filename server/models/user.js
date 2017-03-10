@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+mongoose.Promise = require('bluebird');
 const bcrypt = require('bcrypt');
 const validate = require('mongoose-validator');
 const uniqueValidator = require('mongoose-unique-validator');
@@ -25,7 +26,8 @@ const UserSchema = new Schema({
   password: {
     type: String,
     required: true,
-    trim: true
+    trim: true,
+    minlength: 8
   },
   polls: [{ type: Schema.Types.ObjectId, ref: 'Poll' }]
 });

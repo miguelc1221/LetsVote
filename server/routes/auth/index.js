@@ -4,7 +4,7 @@ const signup = require('./signup');
 
 const router = Router();
 
-router.get('/auth/login', login)
-router.get('/auth/signup', signup)
+router.post('/login', login)
+router.post('/signup', signup)
 
 module.exports = router;

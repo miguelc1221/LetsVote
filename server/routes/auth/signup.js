@@ -21,6 +21,11 @@ const signup = (req, res) => {
       });
     })
     .catch((err) => {
+      if (err.errors.password) {
+        const errCopy = Object.assign({}, err);
+        errCopy.errors.password.message = "Password must be at least 8 characters long."
+        return res.status(422).send(errCopy);
+      }
       return res.status(422).send(err);
     })
 }

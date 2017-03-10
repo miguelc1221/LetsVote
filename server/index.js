@@ -11,6 +11,7 @@ const app = express();
 
 // routes
 const auth = require('./routes/auth');
+const polls = require('./routes/polls');
 
 // DB Setup
 mongoose.connect(config.db, (err) => console.log(err));
@@ -28,6 +29,7 @@ app.use('/auth', expressJwt({ secret: config.secretKey })
   .unless({ path: ['/auth/login', '/auth/signup'] }));
 
 app.use('/auth', auth);
+app.use('/polls', polls);
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../build/index.html'));

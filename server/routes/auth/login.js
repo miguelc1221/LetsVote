@@ -29,6 +29,8 @@ const login = (req, res) => {
             });
           })
         }
+
+        return res.status(422).send(errorMsg);
       });
     })
     .catch((err) => {
