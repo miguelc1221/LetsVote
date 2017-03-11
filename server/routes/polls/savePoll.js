@@ -1,33 +1,34 @@
-const Poll = require('../../models/poll');
-const User = require('../../models/user');
-const jwt = require('jsonwebtoken');
+const Poll = require("../../models/poll");
+const User = require("../../models/user");
 
 module.exports = (req, res) => {
-  const decoded = jwt.decode(req.query.token);
-  User.findById(decoded.user._id)
-    .then((user) => {
+  return User.findById(req.user.id)
+    .then(user => {
       const poll = new Poll({
-        question: req.body.question,
-        answers: req.body.answers
+        question: req.body.poll.question,
+        options: req.body.poll.options
       });
-      poll.save()
-        .then((message) => {
+      poll
+        .save()
+        .then(message => {
+          user.polls.push(message);
+          user.save();
           return res.status(201).json({
-            message: 'Saved message',
+            message: "Saved message",
             obj: message
-          })
+          });
         })
-        .catch((err) => {
+        .catch(err => {
           return res.status(500).json({
-            title: 'An error occurred',
+            title: "An error occurred",
             error: err
           });
         });
     })
-    .catch((err) => {
+    .catch(err => {
       return res.status(500).json({
-          title: 'An error occurred',
-          error: err
+        title: "An error occurred",
+        error: err
       });
-    })
+    });
 };

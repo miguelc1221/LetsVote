@@ -1,15 +1,15 @@
-import { call, put, takeEvery } from 'redux-saga/effects'
-import { getPolls, editPoll, savePoll, deletePoll } from '../utils/Api';
-import * as types from '../actions/types';
+import { call, put, takeEvery } from "redux-saga/effects";
+import { getPolls, editPoll, savePoll, deletePoll } from "../utils/Api";
+import * as types from "../actions/types";
 
 // GET POLLS
 function* fetchPolls(action) {
-   try {
-      const polls = yield call(getPolls, action.payload);
-      yield put({type: types.FETCH_POLLS_SUCCEEDED, payload: polls});
-   } catch (err) {
-      yield put({type: types.FETCH_POLLS_FAILED, payload: err.response.data});
-   }
+  try {
+    const polls = yield call(getPolls, action.payload);
+    yield put({ type: types.FETCH_POLLS_SUCCEEDED, payload: polls });
+  } catch (err) {
+    yield put({ type: types.FETCH_POLLS_FAILED, payload: err.response.data });
+  }
 }
 
 function* watchFetchPolls() {
@@ -18,12 +18,15 @@ function* watchFetchPolls() {
 
 // SAVE POLLS
 function* saveUserPoll(action) {
-   try {
-      const poll = yield call(savePoll, action.payload);
-      yield put({type: types.SAVE_USER_POLL_SUCCEEDED, payload: poll});
-   } catch (err) {
-      yield put({type: types.SAVE_USER_POLL_FAILED, payload: err.response.data.errors});
-   }
+  try {
+    const poll = yield call(savePoll, action.payload);
+    yield put({ type: types.SAVE_USER_POLL_SUCCEEDED, payload: poll });
+  } catch (err) {
+    yield put({
+      type: types.SAVE_USER_POLL_FAILED,
+      payload: err.response.data.errors
+    });
+  }
 }
 
 function* watchSaveUserPoll() {
@@ -32,12 +35,15 @@ function* watchSaveUserPoll() {
 
 // EDIT POLL
 function* editUserPoll(action) {
-   try {
-      const poll = yield call(editPoll, action.payload);
-      yield put({type: types.EDIT_USER_POLL_SUCCEEDED, payload: poll});
-   } catch (err) {
-      yield put({type: types.EDIT_USER_POLL_FAILED, payload: err.response.data.errors});
-   }
+  try {
+    const poll = yield call(editPoll, action.payload);
+    yield put({ type: types.EDIT_USER_POLL_SUCCEEDED, payload: poll });
+  } catch (err) {
+    yield put({
+      type: types.EDIT_USER_POLL_FAILED,
+      payload: err.response.data.errors
+    });
+  }
 }
 
 function* watchEditUserPoll() {
@@ -46,16 +52,24 @@ function* watchEditUserPoll() {
 
 // DELETE POLLS
 function* deleteUserPoll(action) {
-   try {
-      const poll = yield call(deletePoll, action.payload);
-      yield put({type: types.DELETE_USER_POLL_SUCCEEDED, payload: poll});
-   } catch (err) {
-      yield put({type: types.DELETE_USER_POLL_FAILED, payload: err.response.data.errors});
-   }
+  try {
+    const poll = yield call(deletePoll, action.payload);
+    yield put({ type: types.DELETE_USER_POLL_SUCCEEDED, payload: poll });
+  } catch (err) {
+    yield put({
+      type: types.DELETE_USER_POLL_FAILED,
+      payload: err.response.data.errors
+    });
+  }
 }
 
 function* watchDeleteUserPoll() {
   yield takeEvery(types.DELETE_USER_POLL_REQUESTED, deleteUserPoll);
 }
 
-export default [watchFetchPolls, watchSaveUserPoll, watchEditUserPoll, watchDeleteUserPoll];
+export default [
+  watchFetchPolls,
+  watchSaveUserPoll,
+  watchEditUserPoll,
+  watchDeleteUserPoll
+];

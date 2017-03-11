@@ -1,17 +1,21 @@
-const createToken = require('./createToken');
-const User = require('../../models/user');
+const createToken = require("./createToken");
+const User = require("../../models/user");
 
 const login = (req, res) => {
   const email = req.body.email.toLowerCase();
   const password = req.body.password;
-  const errorMsg = { Error: 'Email and Password do not match' }
+  const errorMsg = { Error: "Email and Password do not match" };
 
-  if (!email || !password ) {
-    return res.status(422).send({ error: 'All fields must be filled out' })
+  if (!email || !password) {
+    return res.status(422).send({ error: "All fields must be filled out" });
   }
 
   return User.findOne({ email: email })
-    .then((user) => {
+    .then(user => {
+      if (!user) {
+        return res.status(422).send(errorMsg);
+      }
+
       return user.comparePassword(password, (error, isMatch) => {
         if (error) {
           throw Error(error);
@@ -20,22 +24,23 @@ const login = (req, res) => {
         if (isMatch) {
           return createToken(user, (err, token) => {
             if (err) {
-              throw Error(err)
+              throw Error(err);
             }
 
             return res.json({
               token: token,
               polls: user.polls
             });
-          })
+          });
         }
 
         return res.status(422).send(errorMsg);
       });
     })
-    .catch((err) => {
+    .catch(err => {
+      console.log(err);
       return res.status(422).send(err);
     });
-}
+};
 
 module.exports = login;

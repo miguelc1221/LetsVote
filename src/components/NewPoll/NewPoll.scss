@@ -1,0 +1,14 @@
+.newPoll {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  .input {
+    width: 400px;
+    margin-top: 5px;
+  }
+  button {
+    margin-top: 15px !important;
+  }
+}
