@@ -1,4 +1,4 @@
-import { post } from "axios";
+import { post, get } from "axios";
 import setAuthorizationToken from "../utils/setAuthorizationToken";
 
 export const signup = user => {
@@ -20,16 +20,19 @@ export const login = user => {
     let token = res.data.token;
     setAuthorizationToken(token);
     localStorage.setItem("jwtToken", token);
+    return res.data;
   });
 };
 
-export const getPolls = user => {
-  return post("/auth/login", {
-    email: user.email,
-    password: user.password
-  }).then(res => {
-    let token = res.data.token;
-    localStorage.setItem("jwtToken", token);
+export const getPolls = () => {
+  return get("/polls").then(res => {
+    console.log(res);
+  });
+};
+
+export const savePoll = poll => {
+  return post("/polls", { poll }).then(res => {
+    return res.data;
   });
 };
 
@@ -40,12 +43,6 @@ export const editPoll = user => {
   }).then(res => {
     let token = res.data.token;
     localStorage.setItem("jwtToken", token);
-  });
-};
-
-export const savePoll = poll => {
-  return post("/polls", { poll }).then(res => {
-    console.log(res);
   });
 };
 

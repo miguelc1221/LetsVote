@@ -3,11 +3,12 @@ import { getPolls, editPoll, savePoll, deletePoll } from "../utils/Api";
 import * as types from "../actions/types";
 
 // GET POLLS
-function* fetchPolls(action) {
+function* fetchPolls() {
   try {
-    const polls = yield call(getPolls, action.payload);
+    const polls = yield call(getPolls);
     yield put({ type: types.FETCH_POLLS_SUCCEEDED, payload: polls });
   } catch (err) {
+    yield put({ type: types.TOKEN_EXPIRED });
     yield put({ type: types.FETCH_POLLS_FAILED, payload: err.response.data });
   }
 }
@@ -22,6 +23,7 @@ function* saveUserPoll(action) {
     const poll = yield call(savePoll, action.payload);
     yield put({ type: types.SAVE_USER_POLL_SUCCEEDED, payload: poll });
   } catch (err) {
+    yield put({ type: types.TOKEN_EXPIRED });
     yield put({
       type: types.SAVE_USER_POLL_FAILED,
       payload: err.response.data.errors
@@ -56,6 +58,7 @@ function* deleteUserPoll(action) {
     const poll = yield call(deletePoll, action.payload);
     yield put({ type: types.DELETE_USER_POLL_SUCCEEDED, payload: poll });
   } catch (err) {
+    yield put({ type: types.TOKEN_EXPIRED });
     yield put({
       type: types.DELETE_USER_POLL_FAILED,
       payload: err.response.data.errors

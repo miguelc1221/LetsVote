@@ -15,7 +15,10 @@ module.exports = (req, res) => {
           user.save();
           return res.status(201).json({
             message: "Saved message",
-            obj: message
+            obj: {
+              question: req.body.poll.question,
+              options: req.body.poll.options
+            }
           });
         })
         .catch(err => {

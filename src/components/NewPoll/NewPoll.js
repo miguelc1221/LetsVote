@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, PropTypes } from "react";
 import { Header, Icon, Input, Button } from "semantic-ui-react";
 import { connect } from "react-redux";
 import * as pollActions from "../../actions/polls";
@@ -14,6 +14,10 @@ const uniqueId = () => {
 const id = uniqueId();
 
 class NewPoll extends Component {
+  static propTypes = {
+    savePoll: PropTypes.func
+  };
+
   constructor(props) {
     super(props);
 
@@ -102,7 +106,6 @@ class NewPoll extends Component {
   }
 
   render() {
-    console.log(this.state);
     return (
       <div className="newPoll">
         <Header textAlign="center" as="h1">
