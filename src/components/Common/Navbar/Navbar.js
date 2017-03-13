@@ -67,7 +67,14 @@ class Navbar extends Component {
     } else {
       isLoggedIn = (
         <Menu inverted borderless className="navbar__container">
-          <Menu.Header className="navbar__header">Let's Vote</Menu.Header>
+          <Menu.Header
+            className="navbar__header"
+            as={Link}
+            to="/"
+            onClick={() => this.setState({ activeItem: "" })}
+          >
+            Let's Vote
+          </Menu.Header>
           <Login />
         </Menu>
       );

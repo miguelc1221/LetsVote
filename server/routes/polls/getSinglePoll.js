@@ -1,13 +1,11 @@
 const Poll = require("../../models/poll");
 
 module.exports = (req, res) => {
-  return Poll.find({
-    user: req.user.id
-  })
-    .then(polls => {
+  return Poll.findById(req.params.id)
+    .then(poll => {
       res.status(200).json({
         message: "Success",
-        polls: polls
+        poll: poll
       });
     })
     .catch(err => {

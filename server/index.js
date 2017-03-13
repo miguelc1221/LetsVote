@@ -31,7 +31,13 @@ app.use(
     path: ["/auth/login", "/auth/signup"]
   })
 );
-app.use("/polls", expressJwt({ secret: config.secretKey }));
+
+app.use(
+  "/polls",
+  expressJwt({ secret: config.secretKey }).unless({
+    path: [new RegExp("/polls/vote.*/", "i"), "/polls/vote"]
+  })
+);
 
 app.use("/auth", auth);
 app.use("/polls", polls);

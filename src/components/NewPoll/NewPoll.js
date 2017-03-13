@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from "react";
 import { Header, Icon, Input, Button } from "semantic-ui-react";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import * as pollActions from "../../actions/polls";
 import "./NewPoll.css";
@@ -16,7 +17,8 @@ const id = uniqueId();
 class NewPoll extends Component {
   static propTypes = {
     savePoll: PropTypes.func,
-    isSavingPolls: PropTypes.bool
+    isSavingPolls: PropTypes.bool,
+    polls: PropTypes.arrayOf(PropTypes.object)
   };
 
   constructor(props) {
@@ -112,19 +114,30 @@ class NewPoll extends Component {
   }
 
   render() {
+    const { polls } = this.props;
     if (this.state.createdPoll) {
       return (
-        <Header textAlign="center" className="home__jumbo-header">
-          <Header.Content as="h1">
-            Congratulations, your poll has been created!
-          </Header.Content>
-          <Header.Subheader as="h2">
-            Share the link below with participants
-          </Header.Subheader>
-          <Header>
-            some link
+        <div className="newPoll">
+          <Header textAlign="center">
+            <Header.Content as="h1">
+              Congratulations, your poll has been created!
+            </Header.Content>
+            <Header.Subheader as="h2">
+              Share the link below with participants
+            </Header.Subheader>
+            <Header>
+              <h3>
+                {polls.length
+                  ? <Link to={`/vote/${polls[polls.length - 1]._id}`}>
+                      {
+                        `http://www.localhost:3000/vote/${polls[polls.length - 1]._id}`
+                      }
+                    </Link>
+                  : null}
+              </h3>
+            </Header>
           </Header>
-        </Header>
+        </div>
       );
     }
 
@@ -156,7 +169,8 @@ class NewPoll extends Component {
 }
 
 const mapStateToProps = state => ({
-  isSavingPolls: state.polls.isSavingPolls
+  isSavingPolls: state.polls.isSavingPolls,
+  polls: state.polls.polls
 });
 
 export default connect(mapStateToProps, pollActions)(NewPoll);

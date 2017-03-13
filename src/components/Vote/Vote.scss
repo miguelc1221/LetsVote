@@ -1,0 +1,10 @@
+.vote {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  &__btn {
+    margin-top: 25px !important;
+  }
+}

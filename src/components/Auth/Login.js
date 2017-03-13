@@ -26,13 +26,11 @@ class Login extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.props.auth.tokenExpired !== nextProps.auth.tokenExpired) {
-      if (nextProps.auth.tokenExpired) {
-        this.setState({
-          modalOpen: true,
-          tokenExpired: "Please Log in to continue"
-        });
-      }
+    if (nextProps.auth.tokenExpired) {
+      return this.setState({
+        modalOpen: true,
+        tokenExpired: "Please Log in to continue"
+      });
     }
   }
 
@@ -55,7 +53,6 @@ class Login extends Component {
   }
 
   render() {
-    console.log(this.state);
     const { email, password, tokenExpired } = this.state;
     const { loginError, isFetching } = this.props.auth;
     return (

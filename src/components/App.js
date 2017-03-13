@@ -6,6 +6,8 @@ import Footer from "./Common/Footer/Footer";
 import Home from "./Home/Home";
 import NewPoll from "./NewPoll/NewPoll";
 import MyPolls from "./MyPolls/MyPolls";
+import Vote from "./Vote/Vote";
+import NotFound from "./Common/NotFound/NotFound";
 import "./global.css";
 
 function PrivateRoute({ component: Component, authed, ...rest }) {
@@ -26,6 +28,7 @@ class App extends Component {
           <Navbar />
           <Switch>
             <Route exact path="/" component={Home} />
+            <Route path="/vote/:id" component={Vote} />
             <PrivateRoute
               authed={this.props.auth}
               path="/new-poll"
@@ -36,6 +39,7 @@ class App extends Component {
               path="/my-polls"
               component={MyPolls}
             />
+            <Route component={NotFound} />
           </Switch>
           <Footer />
         </div>

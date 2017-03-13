@@ -1,5 +1,11 @@
 import { call, put, takeEvery } from "redux-saga/effects";
-import { getPolls, editPoll, savePoll, deletePoll } from "../utils/Api";
+import {
+  getPolls,
+  editPoll,
+  savePoll,
+  deletePoll,
+  getSinglePoll
+} from "../utils/Api";
 import * as types from "../actions/types";
 
 // GET POLLS
@@ -15,6 +21,23 @@ function* fetchPolls() {
 
 function* watchFetchPolls() {
   yield takeEvery(types.FETCH_POLLS_REQUESTED, fetchPolls);
+}
+
+// GET SINGLE POLL
+function* fetchSinglePoll(action) {
+  try {
+    const poll = yield call(getSinglePoll, action.payload);
+    yield put({ type: types.FETCH_SINGLE_POLL_SUCCEEDED, payload: poll });
+  } catch (err) {
+    yield put({
+      type: types.FETCH_SINGLE_POLL_FAILED,
+      payload: err.response.data
+    });
+  }
+}
+
+function* watchFetchSinglePoll() {
+  yield takeEvery(types.FETCH_SINGLE_POLL_REQUESTED, fetchSinglePoll);
 }
 
 // SAVE POLLS
@@ -74,5 +97,6 @@ export default [
   watchFetchPolls,
   watchSaveUserPoll,
   watchEditUserPoll,
-  watchDeleteUserPoll
+  watchDeleteUserPoll,
+  watchFetchSinglePoll
 ];
