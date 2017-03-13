@@ -3,6 +3,7 @@ import * as types from "../actions/types";
 const initialState = {
   polls: [],
   isLoadingPolls: false,
+  isSavingPolls: false,
   error: null
 };
 
@@ -34,19 +35,19 @@ export default (state = initialState, action) => {
     case types.SAVE_USER_POLL_REQUESTED:
       return {
         ...state,
-        isLoadingPolls: true
+        isSavingPolls: true
       };
     case types.SAVE_USER_POLL_SUCCEEDED:
       return {
         ...state,
         polls: [...state.polls, payload],
-        isLoadingPolls: false
+        isSavingPolls: false
       };
     case types.SAVE_USER_POLL_FAILED:
       return {
         ...state,
         error: payload,
-        isLoadingPolls: false
+        isSavingPolls: false
       };
     case types.LOG_OUT:
       return {

@@ -1,20 +1,19 @@
-import React, { Component } from "react";
+import React, { Component, PropTypes } from "react";
 import { Header, Segment, Button } from "semantic-ui-react";
 import { connect } from "react-redux";
 import * as pollActions from "../../actions/polls";
 import "./MyPolls.css";
 
 class MyPolls extends Component {
+  static propTypes = {
+    polls: PropTypes.arrayOf(PropTypes.object).isRequired
+  };
+
   componentDidMount() {
     this.props.fetchPolls();
   }
 
-  // renderPolls() {
-  //   return this.props.fetchPolls.map(val => {});
-  // }
-
   render() {
-    console.log(this.props.polls);
     const { polls } = this.props;
     return (
       <div className="my-polls">
@@ -30,7 +29,10 @@ class MyPolls extends Component {
                   Delete
                 </Button>
                 <Button size="small" color="olive" floated="right">
-                  View
+                  Chart
+                </Button>
+                <Button size="small" color="blue" floated="right">
+                  Vote
                 </Button>
               </Segment>
             );

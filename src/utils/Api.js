@@ -33,7 +33,6 @@ export const getPolls = () => {
 
 export const savePoll = poll => {
   return post("/polls", { poll }).then(res => {
-    console.log(res.data);
     return res.data.poll;
   });
 };

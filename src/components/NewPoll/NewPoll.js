@@ -15,7 +15,8 @@ const id = uniqueId();
 
 class NewPoll extends Component {
   static propTypes = {
-    savePoll: PropTypes.func
+    savePoll: PropTypes.func,
+    isSavingPolls: PropTypes.bool
   };
 
   constructor(props) {
@@ -36,7 +37,8 @@ class NewPoll extends Component {
           placeHolder: "Mash Potatoes",
           id: 2
         }
-      ]
+      ],
+      createdPoll: false
     };
 
     this.addOption = this.addOption.bind(this);
@@ -80,7 +82,11 @@ class NewPoll extends Component {
   onSubmit(e) {
     e.preventDefault();
     if (this.state.question.length === 0) return null;
-    this.props.savePoll(this.state);
+    this.props.savePoll({
+      question: this.state.question,
+      options: this.state.options
+    });
+    this.setState({ createdPoll: true });
   }
 
   renderOptions() {
@@ -106,6 +112,22 @@ class NewPoll extends Component {
   }
 
   render() {
+    if (this.state.createdPoll) {
+      return (
+        <Header textAlign="center" className="home__jumbo-header">
+          <Header.Content as="h1">
+            Congratulations, your poll has been created!
+          </Header.Content>
+          <Header.Subheader as="h2">
+            Share the link below with participants
+          </Header.Subheader>
+          <Header>
+            some link
+          </Header>
+        </Header>
+      );
+    }
+
     return (
       <div className="newPoll">
         <Header textAlign="center" as="h1">
@@ -120,10 +142,21 @@ class NewPoll extends Component {
         </Header>
         {this.renderOptions()}
         <Button color="orange" onClick={this.addOption}>More Options</Button>
-        <Button color="olive" onClick={this.onSubmit}>Submit</Button>
+        <Button
+          color="olive"
+          onClick={this.onSubmit}
+          disabled={!this.state.question}
+          loading={this.props.isSavingPolls}
+        >
+          Submit
+        </Button>
       </div>
     );
   }
 }
 
-export default connect(null, pollActions)(NewPoll);
+const mapStateToProps = state => ({
+  isSavingPolls: state.polls.isSavingPolls
+});
+
+export default connect(mapStateToProps, pollActions)(NewPoll);

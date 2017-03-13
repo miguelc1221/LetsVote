@@ -43,7 +43,7 @@ class Home extends Component {
       message = (
         <Header textAlign="center" className="home__jumbo-header">
           <Header.Content as="h1">
-            Please Login again to continue
+            Please log in again to continue
           </Header.Content>
         </Header>
       );
