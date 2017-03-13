@@ -34,7 +34,12 @@ class Navbar extends Component {
     if (isAuthenticated) {
       isLoggedIn = (
         <Menu inverted borderless className="navbar__container">
-          <Menu.Header className="navbar__header" as={Link} to="/">
+          <Menu.Header
+            className="navbar__header"
+            as={Link}
+            to="/"
+            onClick={() => this.setState({ activeItem: "" })}
+          >
             Let's Vote
           </Menu.Header>
           <Menu.Item
@@ -48,6 +53,8 @@ class Navbar extends Component {
           <Menu.Item
             active={activeItem === "MyPolls"}
             name="MyPolls"
+            as={Link}
+            to="/my-polls"
             onClick={this.handleItemClick}
           />
           <Menu.Item

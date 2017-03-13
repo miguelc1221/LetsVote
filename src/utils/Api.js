@@ -20,19 +20,21 @@ export const login = user => {
     let token = res.data.token;
     setAuthorizationToken(token);
     localStorage.setItem("jwtToken", token);
-    return res.data;
+    console.log(res.data);
+    return res.data.polls;
   });
 };
 
 export const getPolls = () => {
   return get("/polls").then(res => {
-    console.log(res);
+    return res.data.polls;
   });
 };
 
 export const savePoll = poll => {
   return post("/polls", { poll }).then(res => {
-    return res.data;
+    console.log(res.data);
+    return res.data.poll;
   });
 };
 

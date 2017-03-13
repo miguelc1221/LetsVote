@@ -1,0 +1,17 @@
+.my-polls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100px;
+  flex: 1;
+  &__seg-group {
+    width: 600px;
+  }
+  &__seg {
+    transition: ease .2s;
+    cursor: pointer;
+    &:hover {
+      background-color: #eee !important;
+    }
+  }
+}

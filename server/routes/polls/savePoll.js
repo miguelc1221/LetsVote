@@ -6,19 +6,18 @@ module.exports = (req, res) => {
     .then(user => {
       const poll = new Poll({
         question: req.body.poll.question,
-        options: req.body.poll.options
+        options: req.body.poll.options,
+        user: req.user.id
       });
       poll
         .save()
         .then(message => {
           user.polls.push(message);
           user.save();
+
           return res.status(201).json({
             message: "Saved message",
-            obj: {
-              question: req.body.poll.question,
-              options: req.body.poll.options
-            }
+            poll: message
           });
         })
         .catch(err => {

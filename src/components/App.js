@@ -5,6 +5,7 @@ import Navbar from "./Common/Navbar/Navbar";
 import Footer from "./Common/Footer/Footer";
 import Home from "./Home/Home";
 import NewPoll from "./NewPoll/NewPoll";
+import MyPolls from "./MyPolls/MyPolls";
 import "./global.css";
 
 function PrivateRoute({ component: Component, authed, ...rest }) {
@@ -29,6 +30,11 @@ class App extends Component {
               authed={this.props.auth}
               path="/new-poll"
               component={NewPoll}
+            />
+            <PrivateRoute
+              authed={this.props.auth}
+              path="/my-polls"
+              component={MyPolls}
             />
           </Switch>
           <Footer />

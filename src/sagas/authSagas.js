@@ -1,14 +1,14 @@
-import { call, put, takeEvery } from 'redux-saga/effects'
-import { login, signup } from '../utils/Api';
-import * as types from '../actions/types';
+import { call, put, takeEvery } from "redux-saga/effects";
+import { login, signup } from "../utils/Api";
+import * as types from "../actions/types";
 
 function* loginUser(action) {
-   try {
-      const user = yield call(login, action.payload);
-      yield put({type: types.LOGIN_USER_SUCCEEDED, payload: user});
-   } catch (err) {
-      yield put({type: types.LOGIN_USER_FAILED, payload: err.response.data});
-   }
+  try {
+    const user = yield call(login, action.payload);
+    yield put({ type: types.LOGIN_USER_SUCCEEDED, payload: user });
+  } catch (err) {
+    yield put({ type: types.LOGIN_USER_FAILED, payload: err.response.data });
+  }
 }
 
 function* watchLoginUser() {
@@ -16,12 +16,15 @@ function* watchLoginUser() {
 }
 
 function* signupUser(action) {
-   try {
-      const user = yield call(signup, action.payload);
-      yield put({type: types.SIGNUP_USER_SUCCEEDED, payload: user});
-   } catch (err) {
-      yield put({type: types.SIGNUP_USER_FAILED, payload: err.response.data.errors});
-   }
+  try {
+    const user = yield call(signup, action.payload);
+    yield put({ type: types.SIGNUP_USER_SUCCEEDED, payload: user });
+  } catch (err) {
+    yield put({
+      type: types.SIGNUP_USER_FAILED,
+      payload: err.response.data.errors
+    });
+  }
 }
 
 function* watchSignupUser() {

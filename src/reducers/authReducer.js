@@ -22,7 +22,8 @@ export default (state = initialState, action) => {
       return {
         ...state,
         isFetching: false,
-        isAuthenticated: true
+        isAuthenticated: true,
+        tokenExpired: false
       };
     case types.LOGIN_USER_FAILED:
       return {
@@ -50,7 +51,8 @@ export default (state = initialState, action) => {
       return {
         ...state,
         isFetching: false,
-        isAuthenticated: true
+        isAuthenticated: true,
+        tokenExpired: false
       };
     case types.SIGNUP_USER_FAILED:
       return {

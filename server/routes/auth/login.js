@@ -1,5 +1,6 @@
 const createToken = require("./createToken");
 const User = require("../../models/user");
+const Poll = require("../../models/poll");
 
 const login = (req, res) => {
   const email = req.body.email.toLowerCase();
@@ -27,10 +28,16 @@ const login = (req, res) => {
               throw Error(err);
             }
 
-            return res.json({
-              token: token,
-              polls: user.polls
-            });
+            return Poll.find({ user: user._id })
+              .then(polls => {
+                return res.json({
+                  token: token,
+                  polls: polls
+                });
+              })
+              .catch(err => {
+                throw new Error(err);
+              });
           });
         }
 
