@@ -8,6 +8,9 @@
   .input {
     width: 400px;
     margin-top: 5px;
+    @media (max-width: 768px) {
+      width: 300px;
+    }
   }
   button {
     margin-top: 15px !important;

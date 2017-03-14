@@ -4,6 +4,10 @@
   align-items: center;
   justify-content: center;
   flex: 1;
+  form {
+    padding: 55px;
+    background-color: #F5F5F5;
+  }
   &__btn {
     margin-top: 25px !important;
   }

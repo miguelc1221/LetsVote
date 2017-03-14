@@ -16,22 +16,12 @@ class Login extends Component {
     this.state = {
       email: "",
       password: "",
-      modalOpen: false,
-      tokenExpired: ""
+      modalOpen: false
     };
     this.handleOnSubmit = this.handleOnSubmit.bind(this);
     this.handleOnChange = this.handleOnChange.bind(this);
     this.handleOnOpen = this.handleOnOpen.bind(this);
     this.handleOnClose = this.handleOnClose.bind(this);
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.auth.tokenExpired) {
-      return this.setState({
-        modalOpen: true,
-        tokenExpired: "Please Log in to continue"
-      });
-    }
   }
 
   handleOnChange(e) {
@@ -53,7 +43,7 @@ class Login extends Component {
   }
 
   render() {
-    const { email, password, tokenExpired } = this.state;
+    const { email, password } = this.state;
     const { loginError, isFetching } = this.props.auth;
     return (
       <Modal
@@ -68,9 +58,10 @@ class Login extends Component {
         }
         open={this.state.modalOpen}
         onClose={this.handleOnClose}
+        closeIcon="close"
       >
         <Modal.Header className="auth__header">
-          {tokenExpired ? tokenExpired : "Login"}
+          Login
         </Modal.Header>
         <Modal.Content>
           <Form onSubmit={this.handleOnSubmit} error={!!loginError}>

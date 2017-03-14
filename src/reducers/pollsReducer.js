@@ -67,6 +67,11 @@ export default (state = initialState, action) => {
         error: payload,
         isSavingPolls: false
       };
+    case types.FILTER_DELETED_POLL:
+      return {
+        ...state,
+        polls: state.polls.filter(val => val._id !== payload._id)
+      };
     case types.LOG_OUT:
       return {
         ...state,

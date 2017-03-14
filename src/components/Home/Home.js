@@ -49,8 +49,6 @@ class Home extends Component {
       );
     }
 
-    console.log(this.props.isAuthenticated);
-    console.log(this.props.tokenExpired);
     return (
       <div className="home">
         <div className="home__jumbo">

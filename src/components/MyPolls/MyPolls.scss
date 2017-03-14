@@ -5,14 +5,27 @@
   margin-top: 100px;
   margin-bottom: 100px;
   flex: 1;
+  &__seg-container {
+    background-color: #F5F5F5 !important;
+    @media (max-width: 768px) {
+      width: 100%;
+    }
+  }
   &__seg-group {
     width: 600px;
+    @media (max-width: 768px) {
+      width: 100%;
+    }
   }
   &__seg {
     transition: ease .2s;
     cursor: pointer;
-    &:hover {
-      background-color: #eee !important;
+  }
+  &__btn {
+    display: inline;
+    @media (max-width: 376px) {
+      display: block;
+      align-self: center;
     }
   }
 }

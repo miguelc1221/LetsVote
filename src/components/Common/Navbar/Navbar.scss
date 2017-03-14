@@ -3,14 +3,12 @@
   background-color: #2B95D6 !important;
   font-weight: bold;
   margin-bottom: 0 !important;
-
   &__container {
     background-color: transparent !important;
     a {
       color: white !important;
     }
   }
-
   &__header {
     font-size: 25px;
     font-weight: bold;
@@ -18,5 +16,4 @@
     cursor: pointer;
     color: white !important;
   }
-
 }
