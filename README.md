@@ -18,7 +18,7 @@ Let's Vote is a voting app where a registered user can create polls and share th
 
 ```
   Guest email: Guest@gmail.com
-  Guest Password: 123456
+  Guest Password: guest1234
 ```
 # In Progress
 * Tests
