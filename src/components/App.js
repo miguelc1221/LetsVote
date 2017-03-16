@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter, Switch, Redirect, Route } from "react-router-dom";
+import { Router, Switch, Redirect, Route } from "react-router-dom";
 import { connect } from "react-redux";
 import Navbar from "./Common/Navbar/Navbar";
 import Footer from "./Common/Footer/Footer";
@@ -9,6 +9,7 @@ import MyPolls from "./MyPolls/MyPolls";
 import Vote from "./Vote/Vote";
 import Chart from "./Chart/Chart";
 import NotFound from "./Common/NotFound/NotFound";
+import history from "../history";
 import "./global.css";
 
 function PrivateRoute({ component: Component, authed, ...rest }) {
@@ -24,13 +25,13 @@ function PrivateRoute({ component: Component, authed, ...rest }) {
 class App extends Component {
   render() {
     return (
-      <BrowserRouter>
+      <Router history={history}>
         <div className="app">
           <Navbar />
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/vote/:id" component={Vote} />
-            <Route path="/chart/:id" component={Chart} />
+            <Route excat path="/chart/:id" component={Chart} />
             <PrivateRoute
               authed={this.props.auth}
               path="/new-poll"
@@ -45,7 +46,7 @@ class App extends Component {
           </Switch>
           <Footer />
         </div>
-      </BrowserRouter>
+      </Router>
     );
   }
 }

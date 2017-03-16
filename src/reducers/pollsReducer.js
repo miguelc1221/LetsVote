@@ -5,7 +5,8 @@ const initialState = {
   votingPoll: {},
   isLoadingPolls: false,
   isSavingPolls: false,
-  error: null
+  isVoting: false,
+  pollError: {}
 };
 
 export default (state = initialState, action) => {
@@ -36,18 +37,19 @@ export default (state = initialState, action) => {
       return {
         ...state,
         isLoadingPolls: false,
-        votingPoll: payload
+        votingPoll: payload,
+        pollError: {}
       };
-    case types.FETCH_SINGLE_POLL_ERROR:
+    case types.FETCH_SINGLE_POLL_FAILED:
       return {
         ...state,
         isLoadingPolls: false,
-        error: payload
+        pollError: payload
       };
     case types.FETCH_POLLS_FAILED:
       return {
         ...state,
-        error: payload,
+        pollError: payload,
         isLoadingPolls: false
       };
     case types.SAVE_USER_POLL_REQUESTED:
@@ -64,8 +66,25 @@ export default (state = initialState, action) => {
     case types.SAVE_USER_POLL_FAILED:
       return {
         ...state,
-        error: payload,
+        pollError: payload,
         isSavingPolls: false
+      };
+    case types.EDIT_USER_POLL_REQUESTED:
+      return {
+        ...state,
+        isVoting: true
+      };
+    case types.EDIT_USER_POLL_SUCCEEDED:
+      return {
+        ...state,
+        votingPoll: payload,
+        isVoting: false
+      };
+    case types.EDIT_USER_POLL_FAILED:
+      return {
+        ...state,
+        pollError: payload,
+        isVoting: false
       };
     case types.FILTER_DELETED_POLL:
       return {

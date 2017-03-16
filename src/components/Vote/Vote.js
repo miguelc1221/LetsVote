@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from "react";
 import { Form, Radio, Button, Segment, Header } from "semantic-ui-react";
+import { withRouter } from "react-router";
 import { connect } from "react-redux";
 import * as pollActions from "../../actions/polls";
 import "./Vote.css";
@@ -10,7 +11,9 @@ class Vote extends Component {
     match: PropTypes.object,
     editPoll: PropTypes.func,
     votingPoll: PropTypes.object,
-    isLoadingPolls: PropTypes.bool
+    isLoadingPolls: PropTypes.bool,
+    isVoting: PropTypes.bool,
+    pollError: PropTypes.object
   };
 
   constructor(props) {
@@ -39,12 +42,23 @@ class Vote extends Component {
   }
 
   render() {
-    const { votingPoll } = this.props;
+    const { isLoadingPolls, votingPoll, isVoting, pollError } = this.props;
+    if (pollError.message) {
+      return (
+        <div className="vote">
+          <Segment style={{ padding: 35 }}>
+            <h1>{pollError.message}</h1>
+          </Segment>
+        </div>
+      );
+    }
     return (
       <div className="vote">
         <Segment>
-          <Form loading={this.props.isLoadingPolls}>
-            <Header as="h1">{votingPoll.question}</Header>
+          <Form loading={isLoadingPolls}>
+            <Header as="h1">
+              {votingPoll.question}
+            </Header>
             {votingPoll.options
               ? votingPoll.options.map((val, idx) => {
                   return (
@@ -64,6 +78,7 @@ class Vote extends Component {
               color="olive"
               className="vote__btn"
               onClick={this.handleOnVote}
+              loading={isVoting}
               disabled={!this.state.value}
             >
               Vote
@@ -77,7 +92,9 @@ class Vote extends Component {
 
 const mapStateToProps = state => ({
   votingPoll: state.polls.votingPoll,
-  isLoadingPolls: state.polls.isLoadingPolls
+  isLoadingPolls: state.polls.isLoadingPolls,
+  isVoting: state.polls.isVoting,
+  pollError: state.polls.pollError
 });
 
-export default connect(mapStateToProps, pollActions)(Vote);
+export default connect(mapStateToProps, pollActions)(withRouter(Vote));

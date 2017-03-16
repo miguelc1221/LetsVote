@@ -5,6 +5,11 @@ module.exports = (req, res) => {
     user: req.user.id
   })
     .then(polls => {
+      if (!polls) {
+        return res.status(404).json({
+          message: "polls not found"
+        });
+      }
       res.status(200).json({
         message: "Success",
         polls: polls
@@ -12,7 +17,7 @@ module.exports = (req, res) => {
     })
     .catch(err => {
       res.status(500).json({
-        title: "An error occurred",
+        message: "An error occurred",
         error: err
       });
     });

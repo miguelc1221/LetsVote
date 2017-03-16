@@ -7,6 +7,7 @@ import {
   getSinglePoll
 } from "../utils/Api";
 import * as types from "../actions/types";
+import history from "../history";
 
 // GET POLLS
 function* fetchPolls() {
@@ -63,6 +64,7 @@ function* editUserPoll(action) {
   try {
     const poll = yield call(editPoll, action.payload);
     yield put({ type: types.EDIT_USER_POLL_SUCCEEDED, payload: poll });
+    yield call(history.push, `/chart/${poll._id}`);
   } catch (err) {
     yield put({
       type: types.EDIT_USER_POLL_FAILED,

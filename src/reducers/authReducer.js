@@ -1,5 +1,4 @@
 import * as types from "../actions/types";
-import { history } from "../index";
 
 const initialState = {
   isFetching: false,
@@ -32,8 +31,6 @@ export default (state = initialState, action) => {
         loginError: payload
       };
     case types.LOG_OUT:
-      localStorage.removeItem("jwtToken");
-      history.push("/");
       return {
         ...state,
         isFetching: false,
@@ -67,7 +64,6 @@ export default (state = initialState, action) => {
       };
     case types.TOKEN_EXPIRED:
       localStorage.removeItem("jwtToken");
-      history.push("/");
       return {
         ...state,
         isAuthenticated: false,
