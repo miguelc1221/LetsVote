@@ -4,10 +4,12 @@ Let's Vote is a voting app where a registered user can create polls and share th
 <p>You can view it at http://lets-vote.herokuapp.com//</p>
 
 ##Tech##
+* Create-React-App
 * React
-* React-Router
+* React-Router v4
 * Redux
-* MaterializeCSS
+* Redux-Saga
+* Semantic UI React
 * SASS
 * ExpressJs
 * MongoDB
