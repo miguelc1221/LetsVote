@@ -130,7 +130,7 @@ class NewPoll extends Component {
                 {polls.length
                   ? <Link to={`/vote/${polls[polls.length - 1]._id}`}>
                       {
-                        `http://www.localhost:3000/vote/${polls[polls.length - 1]._id}`
+                        `http://lets-vote.herokuapp.com/vote/${polls[polls.length - 1]._id}`
                       }
                     </Link>
                   : null}
