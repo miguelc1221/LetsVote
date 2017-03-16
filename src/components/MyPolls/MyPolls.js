@@ -49,9 +49,17 @@ class MyPolls extends Component {
                     >
                       Delete
                     </Button>
-                    <Button size="small" color="olive" floated="right">
-                      Chart
-                    </Button>
+                    <Link to={`/chart/${val._id}`}>
+                      <Button
+                        size="small"
+                        color="olive"
+                        floated="right"
+                        onClick={this.handleOnDelete.bind(this, val)}
+                      >
+                        Chart
+                      </Button>
+                    </Link>
+
                     <Link to={`/vote/${val._id}`}>
                       <Button size="small" color="blue" floated="right">
                         Vote
