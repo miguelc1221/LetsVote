@@ -1,4 +1,4 @@
-exports[`Footer Component should render as expected 1`] = `
+exports[`test Footer Component should render as expected 1`] = `
 <footer
   className="Footer">
   Miguel Correa | 

@@ -1,12 +1,19 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import configureMockStore from 'redux-mock-store';
 import toJson from 'enzyme-to-json';
-import { NewPoll } from './NewPoll';
+import NewPollContainer, { NewPoll } from './NewPoll';
 
-describe('NewPoll Component', () => {
-  it('should render as expected', () => {
-    const component = shallow(<NewPoll />);
-    const tree = toJson(component);
-    expect(tree).toMatchSnapshot();
-  })
+const mockStore = configureMockStore();
+
+const polls = {
+  isSavingPolls: false,
+  polls: []
+}
+
+test('NewPoll Component should render as expected', () => {
+  const store = mockStore({polls});
+  const component = shallow(<NewPollContainer store={store} />);
+  const tree = toJson(component);
+  expect(tree).toMatchSnapshot();
 })

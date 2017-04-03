@@ -1,20 +1,37 @@
-exports[`Navbar Component should render as expected 1`] = `
-<Segment
-  className="navbar">
-  <Container>
-    <Menu
-      borderless={true}
-      className="navbar__container"
-      inverted={true}>
-      <MenuHeader
-        as={[Function]}
-        className="navbar__header"
-        onClick={[Function]}
-        to="/">
-        Let\'s Vote
-      </MenuHeader>
-      <Connect(Login) />
-    </Menu>
-  </Container>
-</Segment>
+exports[`test Navbar Component should render as expected 1`] = `
+<Navbar
+  auth={Object {}}
+  clearErrors={[Function]}
+  logOut={[Function]}
+  loginUser={[Function]}
+  signupUser={[Function]}
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+  storeSubscription={
+    Subscription {
+      "listeners": Object {
+        "notify": [Function],
+      },
+      "onStateChange": [Function],
+      "parentSub": undefined,
+      "store": Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      },
+      "unsubscribe": null,
+    }
+  }
+  userAuthenticated={[Function]} />
 `;

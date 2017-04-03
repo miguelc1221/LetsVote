@@ -1,20 +1,41 @@
-exports[`Vote Component should render as expected 1`] = `
-<div
-  className="vote">
-  <Segment>
-    <Form
-      as="form">
-      <Header
-        as="h1" />
-      <Button
-        as="button"
-        className="vote__btn"
-        color="olive"
-        disabled={true}
-        onClick={[Function]}>
-        Vote
-      </Button>
-    </Form>
-  </Segment>
-</div>
+exports[`test Vote component should render as expected 1`] = `
+<withRouter(Vote)
+  deletePoll={[Function]}
+  editPoll={[Function]}
+  fetchPolls={[Function]}
+  fetchSinglePoll={[Function]}
+  filterDeletedPoll={[Function]}
+  isLoadingPolls={false}
+  isVoting={false}
+  pollError={Object {}}
+  savePoll={[Function]}
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+  storeSubscription={
+    Subscription {
+      "listeners": Object {
+        "notify": [Function],
+      },
+      "onStateChange": [Function],
+      "parentSub": undefined,
+      "store": Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      },
+      "unsubscribe": null,
+    }
+  }
+  votingPoll={Array []} />
 `;

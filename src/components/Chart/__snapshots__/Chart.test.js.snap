@@ -1,128 +1,39 @@
-exports[`Chart Component should render as expected 1`] = `
-<div
-  className="chart">
-  <AnimationDecorator(ComposedDataDecorator(BarChart))
-    data={Array []}
-    height={400}
-    layout="horizontal"
-    margin={
-      Object {
-        "bottom": 5,
-        "left": 5,
-        "right": 5,
-        "top": 5,
-      }
+exports[`test Chart Component should render as expected 1`] = `
+<Chart
+  deletePoll={[Function]}
+  editPoll={[Function]}
+  fetchPolls={[Function]}
+  fetchSinglePoll={[Function]}
+  filterDeletedPoll={[Function]}
+  isLoadingPolls={false}
+  savePoll={[Function]}
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
     }
-    stackOffset="none"
-    width={600}>
-    <XAxis
-      allowDataOverflow={false}
-      allowDecimals={true}
-      dataKey="name"
-      domain={
-        Array [
-          0,
-          "auto",
-        ]
-      }
-      height={30}
-      hide={false}
-      mirror={false}
-      orientation="bottom"
-      padding={
-        Object {
-          "left": 0,
-          "right": 0,
-        }
-      }
-      scale="auto"
-      tickCount={5}
-      type="category"
-      width={0}
-      xAxisId={0} />
-    <YAxis
-      allowDataOverflow={false}
-      allowDecimals={true}
-      domain={
-        Array [
-          0,
-          "auto",
-        ]
-      }
-      height={0}
-      hide={false}
-      mirror={false}
-      orientation="left"
-      padding={
-        Object {
-          "bottom": 0,
-          "top": 0,
-        }
-      }
-      scale="auto"
-      tickCount={5}
-      type="number"
-      width={60}
-      yAxisId={0} />
-    <CartesianGrid
-      fill="none"
-      height={0}
-      horizontal={true}
-      horizontalPoints={Array []}
-      stroke="#ccc"
-      strokeDasharray="3 3"
-      vertical={true}
-      verticalPoints={Array []}
-      width={0}
-      x={0}
-      y={0} />
-    <Tooltip
-      active={false}
-      animationDuration={400}
-      animationEasing="ease"
-      coordinate={
-        Object {
-          "x": 0,
-          "y": 0,
-        }
-      }
-      cursor={true}
-      cursorStyle={Object {}}
-      isAnimationActive={true}
-      itemSorter={[Function]}
-      itemStyle={Object {}}
-      labelStyle={Object {}}
-      offset={10}
-      separator=" : "
-      viewBox={
-        Object {
-          "x1": 0,
-          "x2": 0,
-          "y1": 0,
-          "y2": 0,
-        }
-      }
-      wrapperStyle={Object {}} />
-    <Legend
-      align="center"
-      iconSize={14}
-      layout="horizontal"
-      verticalAlign="bottom" />
-    <Bar
-      animationBegin={0}
-      animationDuration={1500}
-      animationEasing="ease"
-      data={Array []}
-      dataKey="votes"
-      fill="#f2711c"
-      isAnimationActive={true}
-      layout="vertical"
-      legendType="rect"
-      minPointSize={0}
-      onAnimationEnd={[Function]}
-      onAnimationStart={[Function]}
-      xAxisId={0}
-      yAxisId={0} />
-  </AnimationDecorator(ComposedDataDecorator(BarChart))>
-</div>
+  }
+  storeSubscription={
+    Subscription {
+      "listeners": Object {
+        "notify": [Function],
+      },
+      "onStateChange": [Function],
+      "parentSub": undefined,
+      "store": Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      },
+      "unsubscribe": null,
+    }
+  }
+  votingPoll={Object {}} />
 `;

@@ -1,91 +1,38 @@
-exports[`MyPolls Component should render as expected 1`] = `
-<div
-  className="my-polls">
-  <Segment
-    className="my-polls__seg-container">
-    <Header
-      as="h1"
-      textAlign="center">
-      My Polls
-    </Header>
-    <SegmentGroup
-      className="my-polls__seg-group"
-      stacked={true}>
-      <Segment
-        className="my-polls__seg"
-        clearing={true}>
-        <div
-          className="my-polls__btn">
-          <Button
-            as="button"
-            color="youtube"
-            floated="right"
-            onClick={[Function]}
-            size="small">
-            Delete
-          </Button>
-          <Link
-            replace={false}
-            to="/chart/1">
-            <Button
-              as="button"
-              color="olive"
-              floated="right"
-              size="small">
-              Chart
-            </Button>
-          </Link>
-          <Link
-            replace={false}
-            to="/vote/1">
-            <Button
-              as="button"
-              color="blue"
-              floated="right"
-              size="small">
-              Vote
-            </Button>
-          </Link>
-        </div>
-      </Segment>
-      <Segment
-        className="my-polls__seg"
-        clearing={true}>
-        <div
-          className="my-polls__btn">
-          <Button
-            as="button"
-            color="youtube"
-            floated="right"
-            onClick={[Function]}
-            size="small">
-            Delete
-          </Button>
-          <Link
-            replace={false}
-            to="/chart/2">
-            <Button
-              as="button"
-              color="olive"
-              floated="right"
-              size="small">
-              Chart
-            </Button>
-          </Link>
-          <Link
-            replace={false}
-            to="/vote/2">
-            <Button
-              as="button"
-              color="blue"
-              floated="right"
-              size="small">
-              Vote
-            </Button>
-          </Link>
-        </div>
-      </Segment>
-    </SegmentGroup>
-  </Segment>
-</div>
+exports[`test MyPolls Component should render as expected 1`] = `
+<MyPolls
+  deletePoll={[Function]}
+  editPoll={[Function]}
+  fetchPolls={[Function]}
+  fetchSinglePoll={[Function]}
+  filterDeletedPoll={[Function]}
+  polls={Array []}
+  savePoll={[Function]}
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+  storeSubscription={
+    Subscription {
+      "listeners": Object {
+        "notify": [Function],
+      },
+      "onStateChange": [Function],
+      "parentSub": undefined,
+      "store": Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      },
+      "unsubscribe": null,
+    }
+  } />
 `;

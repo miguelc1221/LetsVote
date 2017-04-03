@@ -1,12 +1,14 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import configureMockStore from 'redux-mock-store';
 import toJson from 'enzyme-to-json';
-import { Navbar } from './Navbar';
+import NavbarContainer, { Navbar } from './Navbar';
 
-describe('Navbar Component', () => {
-  it('should render as expected', () => {
-    const component = shallow(<Navbar auth={{}} />);
-    const tree = toJson(component);
-    expect(tree).toMatchSnapshot();
-  })
+const mockStore = configureMockStore();
+
+test('Navbar Component should render as expected', () => {
+  const store = mockStore({ auth: {} });
+  const component = shallow(<NavbarContainer store={store} />);
+  const tree = toJson(component);
+  expect(tree).toMatchSnapshot();
 })

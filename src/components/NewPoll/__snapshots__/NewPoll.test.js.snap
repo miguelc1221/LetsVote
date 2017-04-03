@@ -1,60 +1,39 @@
-exports[`NewPoll Component should render as expected 1`] = `
-<div
-  className="newPoll">
-  <Header
-    as="h1"
-    textAlign="center">
-    Name your poll
-  </Header>
-  <Input
-    onChange={[Function]}
-    placeholder="What\'s you favorite food?"
-    type="text" />
-  <Header
-    as="h1"
-    textAlign="center">
-    Options
-  </Header>
-  <Input
-    icon={
-      <Icon
-        as="i"
-        circular={true}
-        inverted={true}
-        link={true}
-        name="x"
-        onClick={[Function]} />
+exports[`test NewPoll Component should render as expected 1`] = `
+<NewPoll
+  deletePoll={[Function]}
+  editPoll={[Function]}
+  fetchPolls={[Function]}
+  fetchSinglePoll={[Function]}
+  filterDeletedPoll={[Function]}
+  isSavingPolls={false}
+  polls={Array []}
+  savePoll={[Function]}
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
     }
-    name={0}
-    onChange={[Function]}
-    placeholder="Pizza"
-    type="text" />
-  <Input
-    icon={
-      <Icon
-        as="i"
-        circular={true}
-        inverted={true}
-        link={true}
-        name="x"
-        onClick={[Function]} />
+  }
+  storeSubscription={
+    Subscription {
+      "listeners": Object {
+        "notify": [Function],
+      },
+      "onStateChange": [Function],
+      "parentSub": undefined,
+      "store": Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      },
+      "unsubscribe": null,
     }
-    name={1}
-    onChange={[Function]}
-    placeholder="Mash Potatoes"
-    type="text" />
-  <Button
-    as="button"
-    color="orange"
-    onClick={[Function]}>
-    More Options
-  </Button>
-  <Button
-    as="button"
-    color="olive"
-    disabled={true}
-    onClick={[Function]}>
-    Submit
-  </Button>
-</div>
+  } />
 `;

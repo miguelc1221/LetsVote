@@ -1,4 +1,4 @@
-exports[`NotFound Component should render as expected 1`] = `
+exports[`test NotFound Component should render as expected 1`] = `
 <div>
   <h1>
     404

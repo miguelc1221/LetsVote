@@ -1,59 +1,37 @@
-exports[`Login Component should render as expected 1`] = `
-<Modal
-  className="auth"
-  closeIcon="close"
-  closeOnDimmerClick={true}
-  closeOnDocumentClick={false}
-  dimmer={true}
-  onClose={[Function]}
-  open={false}
-  size="small"
-  trigger={
-    <MenuItem
-      name="Login"
-      onClick={[Function]}
-      position="right" />
-  }>
-  <ModalHeader
-    className="auth__header">
-    Login
-  </ModalHeader>
-  <ModalContent>
-    <Form
-      as="form"
-      error={true}
-      onSubmit={[Function]}>
-      <FormField>
-        <label>
-          Email
-        </label>
-        <input
-          name="email"
-          onChange={[Function]}
-          placeholder="Email" />
-      </FormField>
-      <FormField>
-        <label>
-          Password
-        </label>
-        <input
-          name="password"
-          onChange={[Function]}
-          placeholder="Password"
-          type="password" />
-        <Message
-          content=""
-          error={true}
-          hidden={true} />
-      </FormField>
-      <Button
-        as="button"
-        color="olive"
-        disabled={true}
-        type="submit">
-        Login
-      </Button>
-    </Form>
-  </ModalContent>
-</Modal>
+exports[`test Login Component should render as expected 1`] = `
+<Login
+  auth={Object {}}
+  clearErrors={[Function]}
+  logOut={[Function]}
+  loginUser={[Function]}
+  signupUser={[Function]}
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+  storeSubscription={
+    Subscription {
+      "listeners": Object {
+        "notify": [Function],
+      },
+      "onStateChange": [Function],
+      "parentSub": undefined,
+      "store": Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      },
+      "unsubscribe": null,
+    }
+  }
+  userAuthenticated={[Function]} />
 `;
