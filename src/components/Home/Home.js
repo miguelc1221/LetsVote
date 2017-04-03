@@ -5,7 +5,7 @@ import Signup from "../Auth/Signup";
 
 import "./Home.css";
 
-class Home extends Component {
+export class Home extends Component {
   static propTypes = {
     isAuthenticated: PropTypes.bool,
     tokenExpired: PropTypes.bool

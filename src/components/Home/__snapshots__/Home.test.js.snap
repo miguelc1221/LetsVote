@@ -1,0 +1,49 @@
+exports[`Home Component should render as expected 1`] = `
+<div
+  className="home">
+  <div
+    className="home__jumbo">
+    <Header
+      className="home__jumbo-header"
+      textAlign="center">
+      <HeaderContent
+        as="h1">
+        Let\'s Vote
+      </HeaderContent>
+      <HeaderSubheader
+        as="h2">
+        Create Custom Polls And Share Them With Friends
+      </HeaderSubheader>
+      <Header>
+        <Connect(Signup) />
+      </Header>
+    </Header>
+  </div>
+  <div
+    className="home__get-started">
+    <div
+      className="home__get-started-innerContainer">
+      <h1>
+        Getting started
+      </h1>
+      <div
+        className="unordered-list">
+        <ol>
+          <li>
+            Sign up
+          </li>
+          <li>
+            Create a new poll
+          </li>
+          <li>
+            Share given link with participants
+          </li>
+          <li>
+            Check results under (My Polls) 
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+`;

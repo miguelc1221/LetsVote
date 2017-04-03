@@ -22,7 +22,7 @@ function PrivateRoute({ component: Component, authed, ...rest }) {
   );
 }
 
-class App extends Component {
+export class App extends Component {
   render() {
     return (
       <Router history={history}>

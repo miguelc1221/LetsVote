@@ -1,0 +1,60 @@
+exports[`NewPoll Component should render as expected 1`] = `
+<div
+  className="newPoll">
+  <Header
+    as="h1"
+    textAlign="center">
+    Name your poll
+  </Header>
+  <Input
+    onChange={[Function]}
+    placeholder="What\'s you favorite food?"
+    type="text" />
+  <Header
+    as="h1"
+    textAlign="center">
+    Options
+  </Header>
+  <Input
+    icon={
+      <Icon
+        as="i"
+        circular={true}
+        inverted={true}
+        link={true}
+        name="x"
+        onClick={[Function]} />
+    }
+    name={0}
+    onChange={[Function]}
+    placeholder="Pizza"
+    type="text" />
+  <Input
+    icon={
+      <Icon
+        as="i"
+        circular={true}
+        inverted={true}
+        link={true}
+        name="x"
+        onClick={[Function]} />
+    }
+    name={1}
+    onChange={[Function]}
+    placeholder="Mash Potatoes"
+    type="text" />
+  <Button
+    as="button"
+    color="orange"
+    onClick={[Function]}>
+    More Options
+  </Button>
+  <Button
+    as="button"
+    color="olive"
+    disabled={true}
+    onClick={[Function]}>
+    Submit
+  </Button>
+</div>
+`;

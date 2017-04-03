@@ -14,7 +14,7 @@ const uniqueId = () => {
 
 const id = uniqueId();
 
-class NewPoll extends Component {
+export class NewPoll extends Component {
   static propTypes = {
     savePoll: PropTypes.func,
     isSavingPolls: PropTypes.bool,

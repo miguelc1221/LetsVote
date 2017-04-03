@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import * as pollActions from "../../actions/polls";
 import "./Vote.css";
 
-class Vote extends Component {
+export class Vote extends Component {
   static propTypes = {
     fetchSinglePoll: PropTypes.func,
     match: PropTypes.object,

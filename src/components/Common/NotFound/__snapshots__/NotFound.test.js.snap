@@ -1,0 +1,7 @@
+exports[`NotFound Component should render as expected 1`] = `
+<div>
+  <h1>
+    404
+  </h1>
+</div>
+`;

@@ -1,0 +1,20 @@
+exports[`Navbar Component should render as expected 1`] = `
+<Segment
+  className="navbar">
+  <Container>
+    <Menu
+      borderless={true}
+      className="navbar__container"
+      inverted={true}>
+      <MenuHeader
+        as={[Function]}
+        className="navbar__header"
+        onClick={[Function]}
+        to="/">
+        Let\'s Vote
+      </MenuHeader>
+      <Connect(Login) />
+    </Menu>
+  </Container>
+</Segment>
+`;

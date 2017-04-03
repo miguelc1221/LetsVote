@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 import * as authActions from "../../../actions/auth";
 import "./Navbar.css";
 
-class Navbar extends Component {
+export class Navbar extends Component {
   static propTypes = {
     isAuthenticated: PropTypes.bool
   };

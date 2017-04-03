@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import * as pollActions from "../../actions/polls";
 import "./MyPolls.css";
 
-class MyPolls extends Component {
+export class MyPolls extends Component {
   static propTypes = {
     polls: PropTypes.arrayOf(PropTypes.object).isRequired,
     filterDeletedPoll: PropTypes.func,

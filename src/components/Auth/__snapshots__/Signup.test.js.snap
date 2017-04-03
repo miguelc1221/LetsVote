@@ -1,0 +1,78 @@
+exports[`Signup Component should render as expected 1`] = `
+<Modal
+  className="auth"
+  closeOnDimmerClick={true}
+  closeOnDocumentClick={false}
+  dimmer={true}
+  onClose={[Function]}
+  open={false}
+  size="small"
+  trigger={
+    <Button
+      as="button"
+      color="olive"
+      onClick={[Function]}>
+      Sign up
+    </Button>
+  }>
+  <ModalHeader
+    className="auth__header">
+    Sign up
+  </ModalHeader>
+  <ModalContent>
+    <Form
+      as="form"
+      error={false}
+      onSubmit={[Function]}>
+      <FormField>
+        <label>
+          Email
+        </label>
+        <input
+          name="email"
+          onChange={[Function]}
+          placeholder="Email" />
+        <Message
+          content=""
+          error={true}
+          hidden={true} />
+      </FormField>
+      <FormField>
+        <label>
+          Password
+        </label>
+        <input
+          name="password"
+          onChange={[Function]}
+          placeholder="Password"
+          type="password" />
+        <Message
+          content=""
+          error={true}
+          hidden={true} />
+      </FormField>
+      <FormField>
+        <label>
+          Confirm Password
+        </label>
+        <input
+          name="confirmPassword"
+          onChange={[Function]}
+          placeholder="Comfirm Password"
+          type="password" />
+        <Message
+          content="Password and Confirm Password do not match."
+          error={true}
+          hidden={true} />
+      </FormField>
+      <Button
+        as="button"
+        color="olive"
+        disabled={true}
+        type="submit">
+        Sign up
+      </Button>
+    </Form>
+  </ModalContent>
+</Modal>
+`;

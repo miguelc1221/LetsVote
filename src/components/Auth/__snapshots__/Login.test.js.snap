@@ -1,0 +1,59 @@
+exports[`Login Component should render as expected 1`] = `
+<Modal
+  className="auth"
+  closeIcon="close"
+  closeOnDimmerClick={true}
+  closeOnDocumentClick={false}
+  dimmer={true}
+  onClose={[Function]}
+  open={false}
+  size="small"
+  trigger={
+    <MenuItem
+      name="Login"
+      onClick={[Function]}
+      position="right" />
+  }>
+  <ModalHeader
+    className="auth__header">
+    Login
+  </ModalHeader>
+  <ModalContent>
+    <Form
+      as="form"
+      error={true}
+      onSubmit={[Function]}>
+      <FormField>
+        <label>
+          Email
+        </label>
+        <input
+          name="email"
+          onChange={[Function]}
+          placeholder="Email" />
+      </FormField>
+      <FormField>
+        <label>
+          Password
+        </label>
+        <input
+          name="password"
+          onChange={[Function]}
+          placeholder="Password"
+          type="password" />
+        <Message
+          content=""
+          error={true}
+          hidden={true} />
+      </FormField>
+      <Button
+        as="button"
+        color="olive"
+        disabled={true}
+        type="submit">
+        Login
+      </Button>
+    </Form>
+  </ModalContent>
+</Modal>
+`;

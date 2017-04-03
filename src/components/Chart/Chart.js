@@ -13,7 +13,7 @@ import {
 import * as pollActions from "../../actions/polls";
 import "./Chart.css";
 
-class Chart extends Component {
+export class Chart extends Component {
   static propTypes = {
     votingPoll: PropTypes.object,
     isLoadingPolls: PropTypes.bool

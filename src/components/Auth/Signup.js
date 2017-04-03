@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import * as authActions from "../../actions/auth";
 import "./Auth.css";
 
-class Signup extends Component {
+export class Signup extends Component {
   static propTypes = {
     signUpError: PropTypes.object,
     isFetching: PropTypes.bool
